@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
+/* Brand Colors */
 :root {
+  --brand-dark: #000814;
+  --brand-navy: #001d3d;
+  --brand-blue: #003566;
+  --brand-yellow: #ffc300;
+  --brand-light-yellow: #ffd60a;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -14,7 +20,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: var(--brand-dark);
     --foreground: #ededed;
   }
 }
@@ -22,5 +28,174 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-navy);
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.6s ease-out;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.6s ease-out;
+}
+
+.animate-pulse-custom {
+  animation: pulse 2s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient backgrounds */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-navy) 50%, var(--brand-blue) 100%);
+}
+
+.bg-brand-gradient-light {
+  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-navy) 100%);
+}
+
+.bg-yellow-gradient {
+  background: linear-gradient(135deg, var(--brand-yellow) 0%, var(--brand-light-yellow) 100%);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 8, 20, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 195, 0, 0.2);
+}
+
+/* Custom shadows */
+.shadow-brand {
+  box-shadow: 0 10px 25px rgba(0, 8, 20, 0.3);
+}
+
+.shadow-yellow {
+  box-shadow: 0 10px 25px rgba(255, 195, 0, 0.3);
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 8, 20, 0.4);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 195, 0, 0.5);
+}
+
+/* Solid background isolation */
+.solid-bg {
+  background-color: #000000 !important;
+  isolation: isolate;
+  position: relative;
+  z-index: 30;
+}
+
+.solid-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  z-index: -1;
+  border-radius: inherit;
 }
