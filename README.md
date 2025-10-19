@@ -16,7 +16,6 @@ A comprehensive AI-powered healthcare assistant built with Next.js, featuring in
 - **Styling**: Tailwind CSS, Framer Motion
 - **Authentication**: NextAuth.js
 - **Database**: MongoDB
-- **AI**: Google Gemini AI API
 - **Charts**: Recharts
 
 ## 📦 Installation
